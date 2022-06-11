@@ -36,6 +36,10 @@
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
@@ -56,6 +60,9 @@
                     <url>jdbc:mysql://127.0.0.1:3306/bookdb?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC</url>
                     <username>bookadmin</username>
                     <password>password</password>
+                    <outputChangeLogFile>changelog.xml</outputChangeLogFile>
+                    <changeSetAuthor>MAZ</changeSetAuthor>
+                    <changelogSchemaName>bookdb</changelogSchemaName>
                     <!--     <propertyFileWillOverride>true</propertyFileWillOverride>
                          <propertyFile>target/classes/liquibase.properties</propertyFile>-->
                 </configuration>
