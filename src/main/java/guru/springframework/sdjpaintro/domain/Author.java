@@ -27,9 +27,13 @@ public class Author {
     public Author() {
     }
 
+    public Author(String firstName, String lastName, Date dateOfBirth) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.dateOfBirth = dateOfBirth;
+    }
 
     public Author(String firstName, String lastName, Date dateOfBirth, Set<Book> books) {
-        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
