@@ -1,10 +1,9 @@
 package guru.springframework.sdjpaintro.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * Created by jt on 6/12/21.
@@ -19,6 +18,8 @@ public class Book {
     private String title;
     private String isbn;
     private String publisher;
+    @ManyToMany(mappedBy = "books")
+    private Set<Author> authors = new HashSet<>();
 
     public Book() {
 
