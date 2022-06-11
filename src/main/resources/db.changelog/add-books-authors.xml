@@ -3,9 +3,14 @@
                    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
                    xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.6.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
-
-    <include file="db.changelog/changelog-baseline.xml"/>
-    <include file="db.changelog/init-hibernate.xml"/>
-    <include file="db.changelog/add-author.xml"/>
-    <include file="db.changelog/add-books-authors.xml"/>
+<changeSet id="5" author="MAZ">
+    <createTable tableName="books_authors">
+        <column name="author_id" type="BIGINT">
+            <constraints nullable="false" foreignKeyName="fk_books_author_author_id"/>
+        </column>
+        <column name="book_id" type="BIGINT">
+            <constraints nullable="false" foreignKeyName="fk_books_author_book_id"/>
+        </column>
+    </createTable>
+</changeSet>
 </databaseChangeLog>

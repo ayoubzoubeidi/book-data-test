@@ -18,7 +18,8 @@ public class Book {
     private String title;
     private String isbn;
     private String publisher;
-    @ManyToMany(mappedBy = "books")
+
+    @ManyToMany(mappedBy = "books", cascade = CascadeType.PERSIST)
     private Set<Author> authors = new HashSet<>();
 
     public Book() {
@@ -29,6 +30,21 @@ public class Book {
         this.title = title;
         this.isbn = isbn;
         this.publisher = publisher;
+    }
+
+    public Book(String title, String isbn, String publisher, Set<Author> authors) {
+        this.title = title;
+        this.isbn = isbn;
+        this.publisher = publisher;
+        this.authors = authors;
+    }
+
+    public Set<Author> getAuthors() {
+        return authors;
+    }
+
+    public void setAuthors(Set<Author> authors) {
+        this.authors = authors;
     }
 
     @Override

@@ -4,8 +4,15 @@
                    xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.6.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
 
-    <include file="db.changelog/changelog-baseline.xml"/>
-    <include file="db.changelog/init-hibernate.xml"/>
-    <include file="db.changelog/add-author.xml"/>
-    <include file="db.changelog/add-books-authors.xml"/>
+    <changeSet id="4" author="MAZ">
+        <createTable tableName="author">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="first_name" type="VARCHAR(255)"/>
+            <column name="last_name" type="VARCHAR(255)"/>
+            <column name="date_of_birth" type="date"/>
+        </createTable>
+    </changeSet>
+
 </databaseChangeLog>
